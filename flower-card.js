@@ -80,6 +80,7 @@ customElements.whenDefined("card-tools").then(() => {
       }
       .header > #species {
         text-transform: capitalize;
+        margin-left: 16px;
         color: #8c96a5;
         display: block;
       }
