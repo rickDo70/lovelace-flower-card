@@ -64,7 +64,6 @@ customElements.whenDefined("card-tools").then(() => {
         object-fit: cover;
         margin-left: 16px;
         margin-right: 16px;
-        margin-top: -32px;
         float: left;
         box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
       }
@@ -317,11 +316,6 @@ customElements.whenDefined("card-tools").then(() => {
         <ha-card>
         <div class="header" @click="${() =>
           cardTools.moreInfo(this.stateObj.entity_id)}">
-          <img src="${
-            this.stateObj.attributes.entity_picture
-              ? this.stateObj.attributes.entity_picture
-              : missingImage
-          }">
           <span id="name"> ${
             this.stateObj.attributes.friendly_name
           } <ha-icon .icon="mdi:${
