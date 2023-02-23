@@ -28,7 +28,7 @@ customElements.whenDefined("card-tools").then(() => {
     static get styles() {
       return cardTools.LitCSS`
       ha-card {
-        margin-top: 32px;
+        margin-top: 5px;
       }
       .attributes {
         white-space: nowrap;
@@ -70,6 +70,7 @@ customElements.whenDefined("card-tools").then(() => {
       .header > #name {
         font-weight: bold;
         width: 100%;
+        margin-left: 16px;
         margin-top: 16px;
         text-transform: capitalize;
         display: block;
