@@ -72,14 +72,12 @@ customElements.whenDefined("card-tools").then(() => {
         width: 100%;
         margin-left: 16px;
         margin-top: 16px;
-        text-transform: capitalize;
         display: block;
       }
       #name ha-icon {
           color: rgb(240, 163, 163);
       }
       .header > #species {
-        text-transform: capitalize;
         margin-left: 16px;
         color: #8c96a5;
         display: block;
