@@ -82,6 +82,17 @@ customElements.whenDefined("card-tools").then(() => {
         color: #8c96a5;
         display: block;
       }
+
+      .iu_header {
+        padding-top: 8px;
+        height: 30px;
+      }
+      .iu_header > #iu_title {
+        margin-left: 16px;
+        color: #8c96a5;
+        display: block;
+      }
+
       .meter {
         height: 8px;
         background-color: #f1f1f1;
@@ -180,6 +191,7 @@ customElements.whenDefined("card-tools").then(() => {
         "dli",
       ];
       const battery_sensor = this.config.battery_sensor || null;
+      const iu_zone = this.config.iu_zone || null;
 
       if (this.plantinfo && this.plantinfo["result"]) {
         const result = this.plantinfo["result"];
@@ -243,6 +255,23 @@ customElements.whenDefined("card-tools").then(() => {
         </div>
         `;
       };
+      const iu_zone_info = () => {
+        if (iu_zone) {
+            const iu_enabled = this._hass.states[iu_zone]["enabled"]; // stateAttr...
+            /*
+                status, next_start, enabled, duration, done, iu_icon
+            */
+            return cardTools.LitHtml`
+            <div class="header">
+                <span id="iu_title">Bewässerungsautomatik</span>
+                <span id="iu_title">${iu_enabled}</span>
+            </div>
+            <div class="divider"></div>
+            `;
+        } else {
+            return cardTools.LitHtml``;
+        }
+      }
       const battery = () => {
         if (battery_sensor) {
           if (this._hass.states[battery_sensor]) {
@@ -340,6 +369,7 @@ customElements.whenDefined("card-tools").then(() => {
           ${displayed[4] == undefined ? void 0 : attribute(displayed[4])}
           ${displayed[5] == undefined ? void 0 : attribute(displayed[5])}
         </div>
+        ${iu_zone_info()}
         </ha-card>
         `;
     }
