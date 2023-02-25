@@ -261,20 +261,20 @@ customElements.whenDefined("card-tools").then(() => {
         `;
       };
 
+      const iu_zoneDisable = cardTools.createElement({
+        type: "state-icon",
+        tap_action: {
+          action: "call-service",
+          service: "irrigation_unlimited.toggle",
+          data: {entity_id: iu_zone}
+        },
+        entity: iu_zone,
+        icon: "mdi:toggle-switch-off-outline",
+        
+      });
+
       const iu_zone_info = () => {
         if (iu_zone) {
-            
-            const iu_zoneDisable = cardTools.createElement({
-                type: "state-icon",
-                tap_action: {
-                  action: "call-service",
-                  service: "irrigation_unlimited.toggle",
-                  data: {entity_id: iu_zone}
-                },
-                entity: iu_zone,
-                icon: "mdi:toggle-switch-off-outline",
-                
-              });
             
             //console.log(myElement.innerHtml);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
