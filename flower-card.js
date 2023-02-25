@@ -264,10 +264,10 @@ customElements.whenDefined("card-tools").then(() => {
         if (iu_zone) {
             const myElement = cardTools.createElement({
                 type: "state-icon",
+                icon: "mdi:toggle-switch-outline",
                 entity: iu_zone,
                 tap_action: {action: "toggle"},
               });
-            console.log("Element:")
             console.log(myElement);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
