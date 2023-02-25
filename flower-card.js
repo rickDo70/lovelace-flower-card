@@ -279,7 +279,7 @@ customElements.whenDefined("card-tools").then(() => {
             */
             //console.log(myElement.innerHtml);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
-            const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
+            //const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
             const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-outline" : "mdi:toggle-switch-off-outline";
             const iu_enabled_icon_color = (iu_zone_attributes.enabled) ? "green" : "red";
             const ha_root = document.querySelector("hc-main") || document.querySelector("home-assistant");
@@ -309,15 +309,27 @@ customElements.whenDefined("card-tools").then(() => {
     "friendly_name": "Gemüse"
 }
             */
+            if (!iu_zone_attributes.enabled) {
+                const iu_zone_info = cardTools.LitHtml`
+                <span>Die Zone ist deaktiviert</span>
+                `;
+            } else if (iu_zone_attributes.status == 'off') {
+                const iu_zone_info = cardTools.LitHtml`
+                <span>Aktuell keine Bewässerung</span>
+                `;
+            } else if (iu_zone_attributes.status == 'on') {
+                const iu_zone_info = cardTools.LitHtml`
+                <span>Aktuell wird bewässert</span>
+                `;
+            }
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_enabled_icon" @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled")}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
+                <div id="iu_enabled_icon" @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled")}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></div>
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
-                <span>Test</span>
-                
+                ${iu_zone_info}
             </div>
             `;
         } else {
