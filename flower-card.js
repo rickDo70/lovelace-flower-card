@@ -282,6 +282,7 @@ customElements.whenDefined("card-tools").then(() => {
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
             const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-outline" : "mdi:toggle-switch-off-outline";
             const iu_enabled_icon_color = (iu_zone_attributes.enabled) ? "green" : "red";
+            const ha_root = document.querySelector("hc-main") || document.querySelector("home-assistant");
             //console.log(iu_enabled);
             /*
                 status, next_start, enabled, duration, done, iu_icon
@@ -311,7 +312,7 @@ customElements.whenDefined("card-tools").then(() => {
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_enabled_icon"   @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled", {"zone": iu_zone})}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
+                <span id="iu_enabled_icon" @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled", {"zone": iu_zone}), ha_root}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
