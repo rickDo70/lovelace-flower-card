@@ -87,6 +87,8 @@ customElements.whenDefined("card-tools").then(() => {
         float: right;
         margin-right: 16px;
         margin-top: -15px;
+        width: 32;
+        height: 32;
       }
       .iu_header {
         padding-top: 8px;
