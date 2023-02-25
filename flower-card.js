@@ -83,6 +83,11 @@ customElements.whenDefined("card-tools").then(() => {
         display: block;
       }
 
+      #iu_enabled_icon {
+        float: right;
+        margin-right: 16px;
+        margin-top: -15px;
+      }
       .iu_header {
         padding-top: 8px;
         height: 30px;
@@ -257,18 +262,42 @@ customElements.whenDefined("card-tools").then(() => {
       };
       const iu_zone_info = () => {
         if (iu_zone) {
-            const iu_enabled = this._hass.states[iu_zone]; // stateAttr...
-            console.log(iu_enabled);
+            const iu_zone_attributes = this._hass.states[iu_zone].attributes;
+            const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
+            const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-on-outline" : "mdi:toggle-switch-off-outline";
+            //console.log(iu_enabled);
             /*
                 status, next_start, enabled, duration, done, iu_icon
+                
+            mdi:toggle-switch-off-outline   red
+            mdi:toggle-switch-on-outline    green
+
+    "zone_id": "1",
+    "index": 0,
+    "enabled": true,
+    "status": "off",
+    "schedule_count": 0,
+    "schedules": "",
+    "adjustment": "",
+    "current_schedule": null,
+    "percent_complete": 0,
+    "next_adjustment": ",%47.0",
+    "next_schedule": 1,
+    "next_name": "normal",
+    "next_start": "2023-02-26T06:22:35+01:00",
+    "next_duration": "0:04:42",
+    "today_total": 4,
+    "icon": "mdi:valve-closed",
+    "friendly_name": "Gemüse"
+}
             */
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_title">${iu_enabled}</span>
+                <span id="iu_enabled_icon"><ha-icon .icon="${iu_enabled_icon}"></ha-icon></span>
             </div>
             <div class="divider"></div>
-            <div class="attributes">
+            <div class="attributes" style="height: 100px">
                 <span>Test</span>
             </div>
             `;
