@@ -86,7 +86,7 @@ customElements.whenDefined("card-tools").then(() => {
       #iu_enabled_icon {
         float: right;
         margin-right: 16px;
-        margin-top: -15px;
+        margin-top: -30px;
       }
       .iu_header {
         padding-top: 8px;
@@ -310,15 +310,15 @@ customElements.whenDefined("card-tools").then(() => {
 }
             */
             if (!iu_zone_attributes.enabled) {
-                const iu_zone_info = cardTools.LitHtml`
+                const iu_zone_info_text = cardTools.LitHtml`
                 <span>Die Zone ist deaktiviert</span>
                 `;
             } else if (iu_zone_attributes.status == 'off') {
-                const iu_zone_info = cardTools.LitHtml`
+                const iu_zone_info_text = cardTools.LitHtml`
                 <span>Aktuell keine Bewässerung</span>
                 `;
             } else if (iu_zone_attributes.status == 'on') {
-                const iu_zone_info = cardTools.LitHtml`
+                const iu_zone_info_text = cardTools.LitHtml`
                 <span>Aktuell wird bewässert</span>
                 `;
             }
@@ -329,7 +329,7 @@ customElements.whenDefined("card-tools").then(() => {
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
-                ${iu_zone_info}
+                ${iu_zone_info_text}
             </div>
             `;
         } else {
