@@ -268,7 +268,7 @@ customElements.whenDefined("card-tools").then(() => {
                 entity: iu_zone,
                 tap_action: {action: "toggle"},
               });
-            console.log(myElement.innerHtml);
+            //console.log(myElement.innerHtml);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
             const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-outline" : "mdi:toggle-switch-off-outline";
@@ -307,6 +307,7 @@ customElements.whenDefined("card-tools").then(() => {
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
                 <span>Test</span>
+                <span>${myElement}</span>
             </div>
             `;
         } else {
