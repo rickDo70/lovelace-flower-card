@@ -312,7 +312,7 @@ customElements.whenDefined("card-tools").then(() => {
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_enabled_icon" @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled", {"zone": iu_zone}), ha_root}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
+                <span id="iu_enabled_icon" @click='${() => cardTools.fireEvent("iu_zone_toggle_enabled")}'><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
