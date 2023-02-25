@@ -258,6 +258,7 @@ customElements.whenDefined("card-tools").then(() => {
       const iu_zone_info = () => {
         if (iu_zone) {
             const iu_enabled = this._hass.states[iu_zone]; // stateAttr...
+            console.log(iu_enabled);
             /*
                 status, next_start, enabled, duration, done, iu_icon
             */
