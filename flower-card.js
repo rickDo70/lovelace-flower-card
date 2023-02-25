@@ -264,9 +264,9 @@ customElements.whenDefined("card-tools").then(() => {
         if (iu_zone) {
             
             const iu_zoneDisable = cardTools.createElement({
-                type: "button",
+                type: "state-icon",
                 tap_action: {
-                  action: "state-icon",
+                  action: "call-service",
                   service: "irrigation_unlimited.toggle",
                   data: {entity_id: iu_zone},
                   target: {}
