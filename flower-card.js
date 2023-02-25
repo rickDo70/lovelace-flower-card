@@ -295,7 +295,7 @@ customElements.whenDefined("card-tools").then(() => {
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_enabled_icon"><ha-icon .icon="${iu_enabled_icon} style="color: ${iu_enabled_icon_color}""></ha-icon></span>
+                <span id="iu_enabled_icon"><ha-icon .icon="${iu_enabled_icon}" style="color: ${iu_enabled_icon_color}"></ha-icon></span>
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
