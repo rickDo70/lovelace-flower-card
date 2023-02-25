@@ -257,16 +257,19 @@ customElements.whenDefined("card-tools").then(() => {
       };
       const iu_zone_info = () => {
         if (iu_zone) {
-            const iu_enabled = this._hass.states[iu_zone]["enabled"]; // stateAttr...
+            const iu_enabled = this._hass.states[iu_zone]; // stateAttr...
             /*
                 status, next_start, enabled, duration, done, iu_icon
             */
             return cardTools.LitHtml`
-            <div class="header">
+            <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
                 <span id="iu_title">${iu_enabled}</span>
             </div>
             <div class="divider"></div>
+            <div class="attributes">
+                <span>Test</span>
+            </div>
             `;
         } else {
             return cardTools.LitHtml``;
