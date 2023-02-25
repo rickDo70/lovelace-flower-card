@@ -264,7 +264,8 @@ customElements.whenDefined("card-tools").then(() => {
         if (iu_zone) {
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
-            const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-on-outline" : "mdi:toggle-switch-off-outline";
+            const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-outline" : "mdi:toggle-switch-off-outline";
+            const iu_enabled_icon_color = (iu_zone_attributes.enabled) ? "green" : "red";
             //console.log(iu_enabled);
             /*
                 status, next_start, enabled, duration, done, iu_icon
@@ -294,7 +295,7 @@ customElements.whenDefined("card-tools").then(() => {
             return cardTools.LitHtml`
             <div class="iu_header">
                 <span id="iu_title">Bewässerungsautomatik</span>
-                <span id="iu_enabled_icon"><ha-icon .icon="${iu_enabled_icon}"></ha-icon></span>
+                <span id="iu_enabled_icon"><ha-icon .icon="${iu_enabled_icon} style="color: ${iu_enabled_icon_color}""></ha-icon></span>
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
