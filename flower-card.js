@@ -309,17 +309,22 @@ customElements.whenDefined("card-tools").then(() => {
     "friendly_name": "Gemüse"
 }
             */
+           let iu_zone_info_text;
             if (!iu_zone_attributes.enabled) {
-                const iu_zone_info_text = cardTools.LitHtml`
+                iu_zone_info_text = cardTools.LitHtml`
                 <span>Die Zone ist deaktiviert</span>
                 `;
             } else if (iu_zone_attributes.status == 'off') {
-                const iu_zone_info_text = cardTools.LitHtml`
+                iu_zone_info_text = cardTools.LitHtml`
                 <span>Aktuell keine Bewässerung</span>
                 `;
             } else if (iu_zone_attributes.status == 'on') {
-                const iu_zone_info_text = cardTools.LitHtml`
+                iu_zone_info_text = cardTools.LitHtml`
                 <span>Aktuell wird bewässert</span>
+                `;
+            } else {
+                iu_zone_info_text = cardTools.LitHtml`
+                <span>Kein Status? ${iu_zone_attributes.status}</span>
                 `;
             }
             return cardTools.LitHtml`
