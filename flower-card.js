@@ -86,7 +86,7 @@ customElements.whenDefined("card-tools").then(() => {
       #iu_enabled_icon {
         float: right;
         margin-right: 16px;
-        margin-top: -30px;
+        margin-top: -25px;
       }
       .iu_header {
         padding-top: 8px;
@@ -263,20 +263,19 @@ customElements.whenDefined("card-tools").then(() => {
 
       const iu_zone_info = () => {
         if (iu_zone) {
-            /*
+            
             const iu_zoneDisable = cardTools.createElement({
                 type: "state-icon",
                 tap_action: {
                   action: "call-service",
                   service: "irrigation_unlimited.toggle",
-                  data: {entity_id: iu_zone},
-                  target: {}
+                  data: {entity_id: iu_zone}
                 },
                 entity: iu_zone,
                 icon: "mdi:toggle-switch-off-outline",
                 
               });
-            */
+            
             //console.log(myElement.innerHtml);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             //const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
@@ -334,7 +333,7 @@ customElements.whenDefined("card-tools").then(() => {
             </div>
             <div class="divider"></div>
             <div class="attributes" style="height: 100px">
-                ${iu_zone_info_text}
+                ${iu_zone_info_text}<br>${iu_zoneDisable}
             </div>
             `;
         } else {
