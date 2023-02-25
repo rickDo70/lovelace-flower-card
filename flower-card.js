@@ -87,8 +87,6 @@ customElements.whenDefined("card-tools").then(() => {
         float: right;
         margin-right: 16px;
         margin-top: -15px;
-        width: 32;
-        height: 32;
       }
       .iu_header {
         padding-top: 8px;
@@ -264,6 +262,12 @@ customElements.whenDefined("card-tools").then(() => {
       };
       const iu_zone_info = () => {
         if (iu_zone) {
+            const myElement = cardTools.createElement({
+                type: "state-icon",
+                entity: iu_zone,
+                tap_action: {action: "toggle"},
+              });
+            console.log(myElement);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
             const iu_enabled_icon = (iu_zone_attributes.enabled) ? "mdi:toggle-switch-outline" : "mdi:toggle-switch-off-outline";
