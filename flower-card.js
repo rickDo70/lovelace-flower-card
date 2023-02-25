@@ -262,20 +262,20 @@ customElements.whenDefined("card-tools").then(() => {
       };
       const iu_zone_info = () => {
         if (iu_zone) {
+            
             const iu_zoneDisable = cardTools.createElement({
-                show_name: false,
-                show_icon: true,
                 type: "button",
                 tap_action: {
-                  action: "call-service",
+                  action: "state-icon",
                   service: "irrigation_unlimited.toggle",
                   data: {entity_id: iu_zone},
                   target: {}
                 },
                 entity: iu_zone,
                 icon: "mdi:toggle-switch-off-outline",
-                show_state: false
+                
               });
+            
             //console.log(myElement.innerHtml);
             const iu_zone_attributes = this._hass.states[iu_zone].attributes;
             const iu_enabled = iu_zone_attributes.enabled; // stateAttr...
